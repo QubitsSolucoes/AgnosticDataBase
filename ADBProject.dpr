@@ -5,7 +5,8 @@ uses
   FMX.Forms,
   unTestProject in 'unTestProject.pas' {Form1},
   ArrayAssoc in 'ArrayAssoc.pas',
-  ADBConnection in 'ADBConnection.pas';
+  ADBConnection in 'ADBConnection.pas',
+  ADBQueryBuilder in 'ADBQueryBuilder.pas';
 
 {$R *.res}
 

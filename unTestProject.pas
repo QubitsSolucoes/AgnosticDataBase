@@ -69,13 +69,14 @@ implementation
 
 {$R *.fmx}
 
-uses ADBConnection;
+uses
+  ADBConnection, ADBQueryBuilder;
 
 procedure TForm1.ButSQLiteClick(Sender: TObject);
 var
   DBSQLite : TADBConnection;
-  Query: TQueryBuilder;
-  SQL: TQuery;
+  Query: TADBQueryBuilder;
+  SQL: TADBQuery;
 begin
   DBSQLite := TADBConnection.Create;
   //DBSQLite := TADBConnectionClass.GetInstance();
@@ -91,7 +92,7 @@ begin
     if not DBSQLite.GetInstance.Connection.Connected then
       DBSQLite.GetInstance.Connection.Connected := True;
 
-    SQL := TQuery.Create;
+    SQL := TADBQuery.Create;
     try
       SQL := Query.View('SELECT * FROM logradouro');
       SQL.toGrid(GridSQLite);
@@ -110,8 +111,8 @@ end;
 procedure TForm1.ButFirebirdClick(Sender: TObject);
 var
   DBFirebird : TADBConnection;
-  Query: TQueryBuilder;
-  SQL: TQuery;
+  Query: TADBQueryBuilder;
+  SQL: TADBQuery;
 begin
   DBFirebird := TADBConnection.Create;
   //DBFirebird := TADBConnectionClass.GetInstance();
@@ -131,7 +132,7 @@ begin
     if not DBFirebird.GetInstance.Connection.Connected then
       DBFirebird.GetInstance.Connection.Connected := True;
 
-    SQL := TQuery.Create;
+    SQL := TADBQuery.Create;
     try
       SQL := Query.View('SELECT * FROM "card_sector"');
       SQL.toGrid(GridFirebird);
@@ -150,8 +151,8 @@ end;
 procedure TForm1.ButMySQLClick(Sender: TObject);
 var
   DBMySQL : TADBConnection;
-  Query: TQueryBuilder;
-  SQL: TQuery;
+  Query: TADBQueryBuilder;
+  SQL: TADBQuery;
 begin
   DBMySQL := TADBConnection.Create;
   //DBMySQL := TADBConnectionClass.GetInstance();
@@ -166,7 +167,7 @@ begin
     if not DBMySQL.GetInstance.Connection.Connected then
       DBMySQL.GetInstance.Connection.Connected := True;
 
-    SQL := TQuery.Create;
+    SQL := TADBQuery.Create;
     try
       SQL := Query.View('SELECT * FROM estado');
       SQL.toGrid(GridMySQL);
@@ -185,8 +186,8 @@ end;
 procedure TForm1.ButPostgreSQLClick(Sender: TObject);
 var
   DBPostgreSQL : TADBConnection;
-  Query: TQueryBuilder;
-  SQL: TQuery;
+  Query: TADBQueryBuilder;
+  SQL: TADBQuery;
 begin
   DBPostgreSQL := TADBConnection.Create;
   //DBPostgreSQL := TADBConnectionClass.GetInstance();
@@ -202,7 +203,7 @@ begin
     if not DBPostgreSQL.GetInstance.Connection.Connected then
       DBPostgreSQL.GetInstance.Connection.Connected := True;
 
-    SQL := TQuery.Create;
+    SQL := TADBQuery.Create;
     try
       SQL := Query.View('SELECT * FROM demodev.cidade');
       SQL.toGrid(GridPostgreSQL);
